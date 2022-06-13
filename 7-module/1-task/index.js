@@ -12,7 +12,7 @@ export default class RibbonMenu {
      render() {
          this._navCategories = this.categories.map(item => `
            <a href="#" class="ribbon__item" data-id="${item.id}">${item.name}</a>
-         `);
+         `).join('');
          this.elem = createElement(`
            <div class="ribbon">
              <button class="ribbon__arrow ribbon__arrow_left">
@@ -42,7 +42,7 @@ export default class RibbonMenu {
          });
  
          ribbonInner.addEventListener('scroll', () => {
-             let scrollRight = inner.scrollWidth - inner.clientWidth - inner.scrollLeft;
+             let scrollRight = ribbonInner.scrollWidth - ribbonInner.clientWidth - ribbonInner.scrollLeft;
  
              if (ribbonInner.scrollLeft == 0) {
                  buttonLeft.classList.remove('ribbon__arrow_visible');
